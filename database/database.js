@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const connection = new Sequelize('blogpress', 'root', 'Senha@123', {
+const connection = new Sequelize('blogpress', 'root', '', {
     host: 'localhost',
     dialect: 'mysql'
 });
