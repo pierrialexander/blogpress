@@ -17,10 +17,10 @@ router.post('/categories/save', (req, res) => {
             title: title,
             slug: Slugify(title)
         })
-        .then(() => res.redirect('/'));
+        .then(() => res.redirect('/admin/categories'));
     }
     else {
-        res.redirect('admin/categories/new');
+        res.redirect('/admin/categories/new');
         alert('Nenhum titulo informado!')
     }
 });
@@ -29,7 +29,7 @@ router.post('/categories/save', (req, res) => {
 router.get('/admin/categories', (req, res) => {
 
     Category.findAll().then(Categories => {
-        res.render('admin/categories/index', {
+        res.render('/admin/categories/index', {
             categories: Categories
         });
     })
@@ -45,9 +45,7 @@ router.post('/categories/delete', (req, res) => {
                     id: id
                 }
             })
-            .then(() => {
-                res.redirect("/admin/categories");
-            })
+            .then(() => res.redirect('/admin/categories'));
 
         } else { //SE NÃO FOR UM NÚMERO
             res.redirect("/admin/categories");
