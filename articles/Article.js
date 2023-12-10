@@ -20,6 +20,6 @@ const Article = connection.define('articles', {
 Category.hasMany(Article);   // Uma categoria pode ter vários artigos. 1-P-M.
 Article.belongsTo(Category); // Um artigo pertence a uma categoria. 1-P-1.
 
-//Article.sync({force: true})
+// Article.sync({force: true})
 
 module.exports = {Article, Category};
